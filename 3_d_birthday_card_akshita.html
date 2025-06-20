@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Akshita 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ffe0f0, #d0f0ff);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+    }
+
+    .scene {
+      perspective: 1000px;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .card {
+      transform-style: preserve-3d;
+      transition: transform 1s;
+      width: 300px;
+      height: 300px;
+      position: relative;
+    }
+
+    .cake {
+      width: 200px;
+      height: 150px;
+      background: #fff3f8;
+      border-radius: 20px;
+      border: 5px solid #ff9ecb;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transform: rotateX(20deg) rotateY(10deg);
+    }
+
+    .candle {
+      width: 10px;
+      height: 40px;
+      background: #ffb3da;
+      position: absolute;
+      top: -40px;
+      left: calc(50% - 5px);
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .flame {
+      width: 10px;
+      height: 20px;
+      background: radial-gradient(circle, #ff0, #f90);
+      border-radius: 50%;
+      position: absolute;
+      top: -20px;
+      left: 0;
+      animation: flicker 0.2s infinite;
+    }
+
+    @keyframes flicker {
+      0% { transform: scale(1) translateY(0); opacity: 1; }
+      50% { transform: scale(1.1) translateY(-2px); opacity: 0.8; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 1.5em;
+      color: #ff69b4;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+
+    .show-message {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <h1>🎂 Happy Birthday Akshita! 🎈</h1>
+    <div class="card">
+      <div class="cake">
+        <div class="candle" onclick="toggleFlame(this)">
+          <div class="flame"></div>
+        </div>
+      </div>
+    </div>
+    <div id="message" class="message">Wishing you a sweet and joyful year ahead! 💖</div>
+  </div>
+
+  <script>
+    function toggleFlame(candle) {
+      const flame = candle.querySelector('.flame');
+      if (flame) {
+        flame.remove();
+        document.getElementById('message').classList.add('show-message');
+      }
+    }
+  </script>
+</body>
+</html>
